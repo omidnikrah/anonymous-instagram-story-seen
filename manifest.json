@@ -1,12 +1,26 @@
 {
 	"manifest_version": 2,
-
-	"name": "Seen Instagram stories anonymously",
-	"description": "Seen Instagram stories anonymously",
-	"version": "1.0",
+	"name": "See Instagram stories anonymously",
+	"short_name": "Seen Instagram",
+	"description": "See Instagram stories anonymously",
+	"version": "1.0.1",
+	"version_name": "1.0.1",
+	"icons": {
+    		"16": "icons/icon16.png",
+    		"32": "icons/icon32.png",
+    		"48": "icons/icon48.png",
+    		"64": "icons/icon64.png",
+    		"128": "icons/icon128.png",
+    		"256": "icons/icon256.png"
+	},
 
 	"browser_action": {
-		"default_icon": "icon.png"
+		"default_icon": {
+		"16": "icons/icon16.png",
+		"32": "icons/icon32.png",
+		"48": "icons/icon48.png"
+		},
+	"default_title": "Toggle On/Off"
 	},
 	"permissions": [ "https://*.instagram.com/*", "webRequest", "webRequestBlocking" ],
 	"background": {

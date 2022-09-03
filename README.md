@@ -1,5 +1,4 @@
-# anonymous-instagram-story-seen
-Seen Instagram stories anonymously
+# See Instagram Anonymously&nbsp;&nbsp;<img src="/icon.png" width="48">
 
 # How to use 🤓
 1. Download the project by [this link](https://github.com/omidnikrah/anonymous-instagram-story-seen/archive/master.zip) and extract it.
