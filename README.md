@@ -1,5 +1,4 @@
-# anonymous-instagram-story-seen
-Seen Instagram stories anonymously
+# See Instagram Anonymously
 
 # How to use 🤓
 1. Download the project by [this link](https://github.com/omidnikrah/anonymous-instagram-story-seen/archive/master.zip) and extract it.
