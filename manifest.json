@@ -20,7 +20,7 @@
 		"32": "icons/icon32.png",
 		"48": "icons/icon48.png"
 		},
-	"default_title": "Toggle On/Off State"
+	"default_title": "Toggle On/Off"
 	},
 	"permissions": [ "https://*.instagram.com/*", "webRequest", "webRequestBlocking" ],
 	"background": {
