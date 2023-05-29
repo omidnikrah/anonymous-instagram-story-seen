@@ -7,7 +7,7 @@ chrome.webRequest.onBeforeRequest.addListener(
 	() => ({
 		cancel: isActive
 	}),
-	{ urls: [ '*://*.instagram.com/api/v1/stories/reel/seen*' ] },
+	{ urls: [ '*://*.instagram.com/api/v1/stories/reel/seen*', '*://*.instagram.com/api/graphql*' ] },
 	[ 'blocking' ]
 );
 
