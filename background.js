@@ -3,12 +3,25 @@ chrome.browserAction.setBadgeBackgroundColor({ color: isActive ? '#0097ff' : '#7
 chrome.browserAction.setBadgeText({
 	text: isActive ? 'On' : 'Off'
 });
+
+function blockRequestIfContainsReelId(details) {
+	const variablesString = details.requestBody?.formData?.variables?.[0];
+	if (variablesString) {
+		try {
+			const variables = JSON.parse(variablesString);
+			if (variables.reelId !== undefined) {
+				return { cancel: true };
+			};
+		} catch (error) {
+			console.log("Error parsing variablesString");
+		};
+	};
+};
+
 chrome.webRequest.onBeforeRequest.addListener(
-	() => ({
-		cancel: isActive
-	}),
-	{ urls: [ '*://*.instagram.com/api/v1/stories/reel/seen*', '*://*.instagram.com/api/graphql*' ] },
-	[ 'blocking' ]
+	blockRequestIfContainsReelId,
+	{ urls: [ '*://*.instagram.com/api/graphql*' ] },
+	[ 'blocking', 'requestBody']
 );
 
 chrome.browserAction.onClicked.addListener(() => {
