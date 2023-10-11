@@ -3,12 +3,16 @@ chrome.browserAction.setBadgeBackgroundColor({ color: isActive ? '#0097ff' : '#7
 chrome.browserAction.setBadgeText({
 	text: isActive ? 'On' : 'Off'
 });
+
 chrome.webRequest.onBeforeRequest.addListener(
-	() => ({
-		cancel: isActive
-	}),
+	function (details) {
+		const {requestBody : { formData }  } = details
+		const statusBlocking = formData.fb_api_req_friendly_name == 'PolarisAPIReelSeenMutation' ? true : false ;
+		
+		return { cancel: (isActive && statusBlocking) }
+	},
 	{ urls: [ '*://*.instagram.com/api/v1/stories/reel/seen*', '*://*.instagram.com/api/graphql*' ] },
-	[ 'blocking' ]
+	[ 'blocking', 'requestBody']
 );
 
 chrome.browserAction.onClicked.addListener(() => {
