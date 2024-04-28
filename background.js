@@ -6,12 +6,12 @@ chrome.browserAction.setBadgeText({
 
 chrome.webRequest.onBeforeRequest.addListener(
 	function (details) {
-		const {requestBody : { formData }  } = details
-		const statusBlocking = formData.fb_api_req_friendly_name == 'PolarisAPIReelSeenMutation' ? true : false ;
-		
+		const {requestBody : { formData }  } = details ;
+		const statusBlocking = formData.fb_api_req_friendly_name == 'PolarisAPIReelSeenMutation' || formData.fb_api_req_friendly_name == 'usePolarisStoriesV3SeenMutation'  ? true : false ;
+
 		return { cancel: (isActive && statusBlocking) }
 	},
-	{ urls: [ '*://*.instagram.com/api/v1/stories/reel/seen*', '*://*.instagram.com/api/graphql*' ] },
+	{ urls: [ '*://*.instagram.com/api/v1/stories/reel/seen*', '*://*.instagram.com/api/graphql*', '*://*.instagram.com/graphql/query' ] },
 	[ 'blocking', 'requestBody']
 );
 
