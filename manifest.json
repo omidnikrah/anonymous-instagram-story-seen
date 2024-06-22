@@ -3,8 +3,8 @@
 	"name": "See Instagram stories anonymously",
 	"short_name": "Seen Instagram",
 	"description": "See Instagram stories anonymously",
-	"version": "1.0.1",
-	"version_name": "1.0.1",
+	"version": "1.0.5",
+	"version_name": "1.0.5",
 	"icons": {
     		"16": "icons/icon16.png",
     		"32": "icons/icon32.png",
