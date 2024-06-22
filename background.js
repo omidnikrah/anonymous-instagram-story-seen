@@ -7,7 +7,9 @@ chrome.browserAction.setBadgeText({
 chrome.webRequest.onBeforeRequest.addListener(
 	function (details) {
 		const {requestBody : { formData }  } = details ;
-		const statusBlocking = `${formData.fb_api_req_friendly_name}`.includes('SeenMutation') && `${formData.fb_api_req_friendly_name}`.includes('Polaris') ;
+
+		const variables = JSON.parse(formData.variables[0])
+		const statusBlocking = `${formData.fb_api_req_friendly_name}`.includes('Seen') && `${formData.fb_api_req_friendly_name}`.includes('Polaris') && `${formData.fb_api_req_friendly_name}`.includes('Mutation') && 'viewSeenAt' in variables ;
 
 		return { cancel: (isActive && statusBlocking) }
 	},
